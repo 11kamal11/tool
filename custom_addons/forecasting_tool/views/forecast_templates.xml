@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_forecast_data_form" model="ir.ui.view">
+        <field name="name">forecast.data.form</field>
+        <field name="model">forecast.data</field>
+        <field name="arch" type="xml">
+            <form string="Forecast Data">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="file" filename="file_name"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="date_column"/>
+                        <field name="target_column"/>
+                        <field name="frequency"/>
+                    </group>
+                    <notebook>
+                        <page string="Data Lines">
+                            <field name="data_lines">
+                                <list>
+                                    <field name="date_value"/>
+                                    <field name="target_value"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_forecast_result_form" model="ir.ui.view">
+        <field name="name">forecast.result.form</field>
+        <field name="model">forecast.result</field>
+        <field name="arch" type="xml">
+            <form string="Forecast Result">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="forecast_data_id"/>
+                        <field name="horizon"/>
+                        <field name="five_year_forecast"/>
+                        <field name="yearly_seasonality"/>
+                        <field name="include_holidays"/>
+                        <field name="rmse"/>
+                        <field name="mae"/>
+                        <field name="mape"/>
+                    </group>
+                    <notebook>
+                        <page string="Forecast Lines">
+                            <field name="forecast_lines">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="yhat"/>
+                                    <field name="yhat_lower"/>
+                                    <field name="yhat_upper"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="generate_forecast" type="object" string="Generate Forecast" class="oe_stat_button" icon="fa-rocket"/>
+                </div>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_forecast_result_graph" model="ir.ui.view">
+        <field name="name">forecast.result.graph</field>
+        <field name="model">forecast.result.line</field>
+        <field name="arch" type="xml">
+            <graph string="Forecast Results" type="line">
+                <field name="date" type="row"/>
+                <field name="yhat" type="measure"/>
+                <field name="yhat_lower" type="measure"/>
+                <field name="yhat_upper" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

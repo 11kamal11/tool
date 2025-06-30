@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_forecast_data,access.forecast.data,model_forecast_data,base.group_user,1,1,1,1
+access_forecast_result,access.forecast.result,model_forecast_result,base.group_user,1,1,1,1
+access_forecast_data_line,access.forecast.data.line,model_forecast_data_line,base.group_user,1,1,1,1
+access_forecast_result_line,access.forecast.result.line,model_forecast_result_line,base.group_user,1,1,1,1
