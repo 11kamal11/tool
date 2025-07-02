@@ -1,5 +1,5 @@
 {
-    'name': 'Forecasting Tool',
+    'name': 'New Forecasting Tool',
     'version': '18.0.1.0.0',
     'category': 'Tools',
     'summary': 'A tool for time series forecasting using Prophet',
@@ -13,6 +13,7 @@
         'views/forecast_templates.xml',
         'views/forecast_views.xml',
     ],
+    'icon': 'static/description/icon.png',
     'installable': True,
     'auto_install': False,
     'application': True,
