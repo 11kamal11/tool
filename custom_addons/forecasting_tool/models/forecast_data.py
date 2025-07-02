@@ -1,8 +1,8 @@
 from odoo import models, fields
 
 class ForecastData(models.Model):
-    _name = 'new.forecast.data'
-    _description = 'New Forecast Data'
+    _name = 'forecast.data'
+    _description = 'Forecast Data'
 
     name = fields.Char(string='Name', required=True)
     file = fields.Binary(string='File', attachment=True)
@@ -14,12 +14,12 @@ class ForecastData(models.Model):
         ('W', 'Weekly'),
         ('M', 'Monthly'),
     ], string='Frequency')
-    data_lines = fields.One2many('new.forecast.data.line', 'forecast_data_id', string='Data Lines')
+    data_lines = fields.One2many('forecast.data.line', 'forecast_data_id', string='Data Lines')
 
 class ForecastDataLine(models.Model):
-    _name = 'new.forecast.data.line'
-    _description = 'New Forecast Data Line'
+    _name = 'forecast.data.line'
+    _description = 'Forecast Data Line'
 
-    forecast_data_id = fields.Many2one('new.forecast.data', string='Forecast Data')
+    forecast_data_id = fields.Many2one('forecast.data', string='Forecast Data')
     date_value = fields.Date(string='Date')
     target_value = fields.Float(string='Target Value')
